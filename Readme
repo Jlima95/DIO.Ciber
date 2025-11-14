@@ -1,0 +1,46 @@
+CRIANDO UM ATAQUE DE BRUTE FORCE DE SENHAS COM MEDUSA E KALI LINUX
+
+
+Protocolo de autenticação e Brute force
+•	Autenticação Stateless (Sem estado) – Modelo de autenticação onde cada requisição enviada ao servidor vai carregar todas as informações necessárias para verificar a identidade do usuário, toda vez que você tentar acessar algo ele vai fazer essa verificação.
+o	Ex.: Nome de usuário e senhas codificado
+o	Ex. de ferramenta: HTTP Basic Auth: Que vai enviar o login e a senha do cabeçalho em cada requisição HTTP
+•	Autenticação StateFul (Com estado) – Modelo de autenticação onde o usuário irá fazer a autenticação uma única vez, após inserir a senha correta o servidor irá enviar um identificador (geralmente um cookie de sessão), que será armazenado no navegador e será enviado automaticamente em todas as próximas requisições.
+o	Os ataques de Brute Force focarão o formulário de login da aplicação;
+o	Hoje já é utilizado o modelo de camada adicional de segurança como:
+	Limitador de captcha;
+	Autentuicação 2FA
+•	Autenticação Federada – Modelo de autenticação mais sofisticada e segura, onde o sistema não lida com o usuário e a senha, ao invés disto, ele delega essa responsabilidade para um provedor de confiança (Google, Mecrosoft, Facebook)
+o	Este processo é conhecido por meio de protocolos como:
+	OAuth 2.0
+	SAML 2.0
+	OIDC (Open Id Connection)
+o	O ataque de Brute Force será mais direcionado aos provedores (google, Face)
+
+Principais tipos de ataque
+O ataque de força bruta consiste em tentar várias combinações de senhas até encontrar a senha correta. Falaremos sobre os tipos:
+•	Ataque dicionário: Utiliza um arquivo de texto com milhares de palavras (wordlist) com senha, nomes, sequencias numéricas usadas por humanos, onde pode ser feita manualmente, baixada pela internet ou extraída de bancos de dados.
+•	Ataque de força bruta puro (Permutação):  Gera todas as combinações de caracteres até achar a senha correta.
+•	Ataque híbrido: Combina dois tipos modernos dos ataques anteriores, começa com a wordlist e com modificações inteligentes como os humanos utilizam para criar senhas
+o	Mangling Rules: Substituição comuns de caracteres especiais (a -> @)
+o	Junção de listas: Duas wordlists são combinadas para gerar senhas
+•	Password Spraying: É um ataque mais estratégico, ao invés de tentar várias senhas por usuário, que pode gerar um bloqueio automático pelo site, o atacante vai usar uma senha comum para vários usuários diferentes.
+•	Credential Stuffing: Onde se baseia no uso das credenciais vazadas.
+
+Ferrmenta do Kali – Medusa
+É uma ferramenta rápida e poderosa para ataque de força bruta em vários protocolos (SSH, STP, HTTP..) usado para múltiplos usuários e senhas paralelas, interessante para auditoria e relatório de teste, com parâmetros customizados.
+
+ Hydra
+Ferramenta de brute force, ligada a mias de 50 protocolos, muito comum de ser usada em protocolos como SSH, FTP, HTTP,SSMD..) além de banco de dados como  (SQL, Postgree)
+
+Ncrack
+Permite ser integrado com o NMap, suporta também muitos protocolos. Ideal para ambientes distribuídos e empresas maiores. Não é adaptável com páginas mais complexas
+
+John the ripper
+Quando possuímos a hash da senha e queremos descobrir a senha original a partir dela. Ideal para análises forenses, ou analise interna.
+
+Wpscan
+Auditar e atacar instalações do wordpress
+
+Patator
+Flexibilidade e nível de configuração de aspectos de ataque de forma experiente
