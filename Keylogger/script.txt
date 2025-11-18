@@ -1,0 +1,8 @@
+1 - Vai ficar em execução em segundo plano
+
+2- Toda vez que o usuário digitar uma tecla vai capturar essa tecla
+
+3 - O que for digitado será gravado em um arquivo .txt.
+
+4 - O arquivo vai mostrar o que foi digitado. De forma sequencial
+
